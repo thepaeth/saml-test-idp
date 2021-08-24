@@ -1,5 +1,5 @@
 version: "3"
-sservices:
+services:
   saml-simple:
     container_name: saml-server
     image: kristophjunge/test-saml-idp
