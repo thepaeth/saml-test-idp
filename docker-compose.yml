@@ -1,0 +1,15 @@
+version: "3"
+sservices:
+  saml-simple:
+    container_name: saml-server
+    image: kristophjunge/test-saml-idp
+    # environment: 
+    #   - SIMPLESAMLPHP_SP_ENTITY_ID=http://172.16.99.170:5000
+    #   - SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://172.16.99.170:5000/
+    #   - SIMPLESAMLPHP_SP_SINGLE_LOGOUT_SERVICE=http://172.16.99.170:5000/slo
+    volumes: 
+      - ./config/authsources.php:/var/www/simplesamlphp/config/authsources.php
+      - ./metadata/saml20-sp-remote.php:/var/www/simplesamlphp/metadata/saml20-sp-remote.php
+    ports:
+      - 8080:8080
+      - 8443:8443
